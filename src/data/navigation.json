@@ -1,0 +1,10 @@
+{
+  "items": [
+    { "label": "Home", "url": "/" },
+    { "label": "Shop", "url": "/products" },
+    { "label": "About", "url": "/about" },
+    { "label": "Ingredients", "url": "/ingredients" },
+    { "label": "Routines", "url": "/blog" },
+    { "label": "Contact", "url": "/contact" }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "tagline": "Conscious beauty, beautifully made.",
+  "columns": [
+    {
+      "title": "Shop",
+      "links": [
+        { "label": "Serums", "url": "/products#serums" },
+        { "label": "Lipsticks", "url": "/products#lipsticks" },
+        { "label": "Creams", "url": "/products#creams" },
+        { "label": "Mini Sets", "url": "/products#sets" }
+      ]
+    },
+    {
+      "title": "Brand",
+      "links": [
+        { "label": "Our Story", "url": "/about" },
+        { "label": "Ingredients", "url": "/ingredients" },
+        { "label": "Routines", "url": "/blog" },
+        { "label": "Stockists", "url": "/contact" }
+      ]
+    },
+    {
+      "title": "Care",
+      "links": [
+        { "label": "Contact Us", "url": "/contact" },
+        { "label": "Shipping", "url": "/contact" },
+        { "label": "Returns", "url": "/contact" },
+        { "label": "FAQ", "url": "/ingredients" }
+      ]
+    }
+  ],
+  "copyright": "© {year} Lumière Skin. All rights reserved."
+}

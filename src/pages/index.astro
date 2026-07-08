@@ -1,0 +1,25 @@
+---
+import { getCollection } from 'astro:content';
+import site from '../data/site.json';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PageBlocks from '../components/PageBlocks.tsx';
+
+const pages = await getCollection('pages');
+const home = pages.find((p) => p.id === 'home');
+
+if (!home) {
+  throw new Error('Home page (src/content/pages/home.md) not found.');
+}
+
+const { seo, content_blocks } = home.data;
+---
+
+<BaseLayout
+  title={`${site.name} — ${site.tagline}`}
+  description={seo.description}
+  image={seo.featured_image}
+  imageAlt={seo.image_alt}
+  canonical={seo.canonical}
+>
+  <PageBlocks blocks={content_blocks} />
+</BaseLayout>

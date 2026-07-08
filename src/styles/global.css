@@ -1,0 +1,55 @@
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
+
+/* Theme tokens are injected on :root from src/data/theme.json via the layout.
+   These defaults keep the site presentable before CloudCannon hydrates them. */
+:root {
+  --color-primary: #b76e79;
+  --color-primary-foreground: #fffaf7;
+  --color-accent: #d4af7a;
+  --color-bg: #fffaf7;
+  --color-surface: #fdeef0;
+  --color-ink: #2b2326;
+  --color-muted: #8a7d80;
+  --font-display: 'Cormorant Garamond', ui-serif, Georgia, serif;
+  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-foreground: var(--color-primary-foreground);
+  --color-accent: var(--color-accent);
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-ink: var(--color-ink);
+  --color-muted: var(--color-muted);
+
+  --font-display: var(--font-display);
+  --font-body: var(--font-body);
+
+  --radius-card: 1rem;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+}
+
+/* Editable region affordances for CloudCannon */
+[data-cms-editable] {
+  outline: none;
+}

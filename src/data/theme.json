@@ -1,0 +1,12 @@
+{
+  "primary_color": "#b76e79",
+  "primary_foreground": "#fffaf7",
+  "accent_color": "#d4af7a",
+  "background_color": "#fffaf7",
+  "surface_color": "#fdeef0",
+  "text_color": "#2b2326",
+  "muted_color": "#8a7d80",
+  "heading_font": "'Cormorant Garamond', ui-serif, Georgia, serif",
+  "body_font": "'Inter', ui-sans-serif, system-ui, sans-serif",
+  "border_radius": "1rem"
+}

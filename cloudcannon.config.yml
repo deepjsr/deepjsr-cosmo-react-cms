@@ -1,0 +1,52 @@
+# CloudCannon configuration for Lumière Skin
+# Tech stack is managed in package.json / astro.config.mjs — do not change here.
+
+_global_data:
+  path: src/data
+  schemas:
+    site:
+      path: src/data/site.json
+    navigation:
+      path: src/data/navigation.json
+    footer:
+      path: src/data/footer.json
+    social:
+      path: src/data/social.json
+    theme:
+      path: src/data/theme.json
+
+_collections:
+  pages:
+    path: src/content/pages/**
+    url: "{slug}"
+    view: [visual, content]
+  posts:
+    path: src/content/posts/**
+    url: "/blog/{slug}"
+    view: [visual, content]
+
+_inputs:
+  date:
+    type: date
+  hero_image:
+    type: image
+    comment: "Swap the placeholder URL for a local file in /images/placeholders/"
+  image:
+    type: image
+    comment: "Swap the placeholder URL for a local file in /images/placeholders/"
+  featured_image:
+    type: image
+    comment: "Placeholder image — replace with a real asset before launch."
+  image_alt:
+    comment: "Describe the image for screen readers."
+  content_blocks:
+    type: array
+    comment: "Page sections. Add, reorder and edit blocks to build the page."
+
+editor:
+  preview:
+    wrap_in: src/layouts/BaseLayout.astro
+    path: /{slug}
+  default_view: visual
+
+# Editable regions are provided by @cloudcannon/editable-regions (see astro.config.mjs).

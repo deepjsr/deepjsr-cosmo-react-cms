@@ -1,0 +1,124 @@
+# CloudCannon structure values for the `content_blocks` array.
+# Lets editors pick a pre-filled block when adding a new section.
+content_blocks:
+  - value:
+      component: hero
+      eyebrow: "New eyebrow"
+      title: "Hero heading"
+      subtitle: "A short supporting sentence."
+      image: "https://placehold.co/1200x1400.png"
+      image_alt: "Describe the hero image"
+      cta_label: "Shop now"
+      cta_url: "/products"
+      secondary_label: "Learn more"
+      secondary_url: "/about"
+    preview:
+      text: "Hero"
+  - value:
+      component: features
+      eyebrow: "Why us"
+      heading: "Section heading"
+      subheading: "Optional supporting line."
+      items:
+        - icon: "✿"
+          title: "Feature title"
+          description: "Feature description."
+    preview:
+      text: "Feature grid"
+  - value:
+      component: image_text
+      eyebrow: "Eyebrow"
+      heading: "Image + text heading"
+      body: "Paragraph body text."
+      image: "https://placehold.co/1000x1250.png"
+      image_alt: "Describe the image"
+      cta_label: "Call to action"
+      cta_url: "/contact"
+    preview:
+      text: "Image + text"
+  - value:
+      component: product_grid
+      eyebrow: "Shop"
+      heading: "Product grid"
+      subheading: "Optional line."
+      products:
+        - name: "Product name"
+          price: "$0"
+          image: "https://placehold.co/800x800.png"
+          image_alt: "Describe the product"
+          description: "Short description."
+          url: "/products"
+    preview:
+      text: "Product grid"
+  - value:
+      component: pricing
+      eyebrow: "Plans"
+      heading: "Pricing / sets"
+      subheading: "Optional line."
+      plans:
+        - name: "Set name"
+          price: "$0"
+          period: "one-time"
+          description: "What's included."
+          features:
+            - "Feature one"
+          cta_label: "Add to bag"
+          cta_url: "/contact"
+          featured: false
+    preview:
+      text: "Pricing / sets"
+  - value:
+      component: testimonials
+      eyebrow: "Reviews"
+      heading: "Testimonials"
+      subheading: "Optional line."
+      items:
+        - quote: "A lovely review."
+          name: "Customer name"
+          role: "Skin type, age"
+          avatar: "https://placehold.co/200x200.png"
+          image_alt: "Customer portrait"
+    preview:
+      text: "Testimonials"
+  - value:
+      component: faq
+      eyebrow: "FAQ"
+      heading: "Frequently asked"
+      items:
+        - question: "Question?"
+          answer: "Answer."
+    preview:
+      text: "FAQ"
+  - value:
+      component: cta
+      eyebrow: "Ready?"
+      heading: "Call to action heading"
+      subheading: "Supporting line."
+      cta_label: "Get started"
+      cta_url: "/contact"
+      note: "Optional small print."
+    preview:
+      text: "CTA banner"
+  - value:
+      component: team
+      eyebrow: "Team"
+      heading: "Meet the team"
+      subheading: "Optional line."
+      members:
+        - name: "Member name"
+          role: "Role"
+          image: "https://placehold.co/400x400.png"
+          image_alt: "Member portrait"
+    preview:
+      text: "Team"
+  - value:
+      component: logo_cloud
+      eyebrow: "As featured in"
+      heading: "Press & stockists"
+      logos:
+        - name: "Brand"
+          image: "https://placehold.co/200x80.png"
+          image_alt: "Brand logo"
+          url: "#"
+    preview:
+      text: "Logo cloud"

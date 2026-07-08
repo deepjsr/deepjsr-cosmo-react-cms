@@ -1,0 +1,76 @@
+{
+  "$ref": "#/definitions/posts",
+  "definitions": {
+    "posts": {
+      "type": "object",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "date": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "date-time"
+            },
+            {
+              "type": "string",
+              "format": "date"
+            },
+            {
+              "type": "integer",
+              "format": "unix-time"
+            }
+          ]
+        },
+        "excerpt": {
+          "type": "string",
+          "default": ""
+        },
+        "author": {
+          "type": "string",
+          "default": "Lumière Skin"
+        },
+        "category": {
+          "type": "string",
+          "default": "Routines"
+        },
+        "hero_image": {
+          "type": "string"
+        },
+        "image_alt": {
+          "type": "string"
+        },
+        "seo": {
+          "type": "object",
+          "properties": {
+            "description": {
+              "type": "string",
+              "default": ""
+            },
+            "canonical": {
+              "type": "string"
+            },
+            "featured_image": {
+              "type": "string"
+            },
+            "image_alt": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "title",
+        "date",
+        "seo"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}
