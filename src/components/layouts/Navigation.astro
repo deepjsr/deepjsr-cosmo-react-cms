@@ -5,8 +5,11 @@ import site from '../../../data/site.json';
 const path = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
 
-const withBase = (link: string) =>
-  `${base}${link === '/' ? '' : link.replace(/^\//, '')}`;
+const withBase = (link: string) => {
+  if (link === "/") return import.meta.env.BASE_URL;
+
+  return new URL(link.replace(/^\//, ""), import.meta.env.BASE_URL).pathname;
+};
 ---
 
 <header class="sticky top-0 z-50 border-b border-black/5 bg-background/80 backdrop-blur">
