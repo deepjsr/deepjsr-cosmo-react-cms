@@ -1,51 +1,7 @@
 {
   "$ref": "#/definitions/pages",
   "definitions": {
-    "pages": {
-      "type": "object",
-      "properties": {
-        "title": {
-          "type": "string"
-        },
-        "content_blocks": {
-          "type": "array",
-          "default": []
-        },
-        "seo": {
-          "type": "object",
-          "properties": {
-            "page_description": {
-              "type": "string"
-            },
-            "canonical_url": {
-              "type": "string"
-            },
-            "featured_image": {
-              "type": "string"
-            },
-            "open_graph_type": {
-              "type": "string",
-              "default": "website"
-            },
-            "no_index": {
-              "type": "boolean",
-              "default": false
-            },
-            "title": {
-              "type": "string"
-            }
-          },
-          "additionalProperties": false
-        },
-        "$schema": {
-          "type": "string"
-        }
-      },
-      "required": [
-        "title"
-      ],
-      "additionalProperties": false
-    }
+    "pages": {}
   },
   "$schema": "http://json-schema.org/draft-07/schema#"
 }
