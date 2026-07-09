@@ -1,7 +1,68 @@
 {
-  "$ref": "#/definitions/posts",
-  "definitions": {
-    "posts": {}
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "author": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "image": {
+      "type": "string"
+    },
+    "image_alt": {
+      "type": "string"
+    },
+    "tags": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "draft": {
+      "default": false,
+      "type": "boolean"
+    },
+    "seo": {
+      "type": "object",
+      "properties": {
+        "page_description": {
+          "type": "string"
+        },
+        "canonical_url": {
+          "type": "string"
+        },
+        "featured_image": {
+          "type": "string"
+        },
+        "open_graph_type": {
+          "default": "website",
+          "type": "string"
+        },
+        "no_index": {
+          "default": false,
+          "type": "boolean"
+        },
+        "title": {
+          "type": "string"
+        }
+      }
+    },
+    "$schema": {
+      "type": "string"
+    }
   },
-  "$schema": "http://json-schema.org/draft-07/schema#"
+  "required": [
+    "title",
+    "date"
+  ]
 }

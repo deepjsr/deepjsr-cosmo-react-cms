@@ -6,9 +6,9 @@ const path = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
 
 const withBase = (link: string) => {
-  if (link === "/") return import.meta.env.BASE_URL;
+  if (link === "/") return base;
 
-  return new URL(link.replace(/^\//, ""), import.meta.env.BASE_URL).pathname;
+  return `${base.replace(/\/$/, "")}/${link.replace(/^\//, "")}`;
 };
 ---
 
