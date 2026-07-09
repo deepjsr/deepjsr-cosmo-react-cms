@@ -9,4 +9,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  site: 'https://deepjsr.github.io',
+  base: '/Astro-CMS',
 });
