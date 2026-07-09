@@ -10,5 +10,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: 'https://deepjsr.github.io',
-  base: '/Astro-CMS',
+  base: '/deepjsr-cosmo-react-crms',
 });
