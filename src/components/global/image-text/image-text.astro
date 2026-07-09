@@ -1,0 +1,36 @@
+---
+import Button from '../../shared/Button.astro';
+
+const {
+  heading = '',
+  subheading = '',
+  image = 'https://placehold.co/1000x800?text=Lumi%C3%A8re',
+  image_alt = '',
+  text = '',
+  button = {},
+  reverse = false,
+} = Astro.props;
+---
+
+<section class="py-16 sm:py-24">
+  <div class="container-page grid items-center gap-12 lg:grid-cols-2">
+    <img
+      src={image}
+      alt={image_alt || heading}
+      class={`w-full rounded-[var(--theme-radius)] object-cover shadow-md ${reverse ? 'lg:order-2' : ''}`}
+      loading="lazy"
+    />
+    <div>
+      {heading && <h2 class="text-3xl font-semibold sm:text-4xl">{heading}</h2>}
+      {subheading && <p class="mt-4 text-lg text-muted">{subheading}</p>}
+      {text && <p class="mt-4 text-muted" set:html={text} />}
+      {
+        button?.text && (
+          <div class="mt-8">
+            <Button text={button.text} link={button.link} variant="primary" />
+          </div>
+        )
+      }
+    </div>
+  </div>
+</section>

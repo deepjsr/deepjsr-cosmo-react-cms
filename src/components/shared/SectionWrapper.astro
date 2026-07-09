@@ -1,0 +1,19 @@
+---
+const { heading, subheading, id, align = 'center', class: className = '' } = Astro.props;
+
+const headerAlign = align === 'left' ? 'text-left max-w-none' : 'text-center mx-auto max-w-2xl';
+---
+
+<section id={id} class={`py-16 sm:py-24 ${className}`}>
+  <div class="container-page">
+    {
+      (heading || subheading) && (
+        <div class={`mb-12 ${headerAlign}`}>
+          {heading && <h2 class="text-3xl font-semibold sm:text-4xl">{heading}</h2>}
+          {subheading && <p class="mt-4 text-lg text-muted">{subheading}</p>}
+        </div>
+      )
+    }
+    <slot />
+  </div>
+</section>

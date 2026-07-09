@@ -1,0 +1,16 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/video-embed
+  heading: Watch the story
+  subheading: See our products in action.
+  url: "https://www.youtube.com/watch?v=3TPOocxXoWA"
+  caption: Our brand film
+_inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  url:
+    type: url
+  caption:
+    type: text

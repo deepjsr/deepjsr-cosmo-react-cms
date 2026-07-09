@@ -1,0 +1,22 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/team-grid
+  heading: The team
+  subheading: The faces behind the brand.
+  members:
+    -
+            name: Lumière Founder
+            role: "Founder & CEO"
+            bio: Passionate about clean beauty.
+            image: /images/placeholders/team-01.jpg
+            image_alt: Team member
+      _inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  members:
+    type: array
+    element:
+      type: object
+      nested: true

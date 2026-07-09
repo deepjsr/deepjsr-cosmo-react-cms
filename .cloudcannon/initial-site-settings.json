@@ -1,0 +1,13 @@
+{
+  "source": {
+    "provider": "github"
+  },
+  "build": {
+    "command": "npm run build",
+    "output_path": "dist",
+    "install_command": "npm install"
+  },
+  "environment": {
+    "NODE_VERSION": "20"
+  }
+}

@@ -1,0 +1,42 @@
+---
+import nav from '../../../data/navigation.json';
+import site from '../../../data/site.json';
+
+const path = Astro.url.pathname;
+---
+
+<header class="sticky top-0 z-50 border-b border-black/5 bg-background/80 backdrop-blur">
+  <div class="container-page flex items-center justify-between py-4">
+    <a href="/" class="text-xl font-semibold tracking-tight">{site.site_title}</a>
+
+    <nav class="hidden items-center gap-8 md:flex">
+      {
+        nav.map((item) => (
+          <a
+            href={item.link}
+            class={`text-sm font-medium transition-colors hover:text-primary ${
+              path === item.link ? 'text-primary' : 'text-ink'
+            }`}
+          >
+            {item.text}
+          </a>
+        ))
+      }
+    </nav>
+
+    <a
+      href="/contact"
+      class="hidden rounded-[var(--theme-radius)] bg-primary px-5 py-2 text-sm font-medium text-white transition-opacity hover:opacity-90 md:inline-flex"
+    >
+      Book a consult
+    </a>
+
+    <details class="md:hidden">
+      <summary class="cursor-pointer list-none text-2xl leading-none">☰</summary>
+      <nav class="absolute left-0 right-0 top-full flex flex-col gap-2 border-b border-black/5 bg-background p-4">
+        {nav.map((item) => <a href={item.link} class="py-2 text-sm font-medium hover:text-primary">{item.text}</a>)}
+        <a href="/contact" class="mt-2 rounded-[var(--theme-radius)] bg-primary px-5 py-2 text-center text-sm font-medium text-white">Book a consult</a>
+      </nav>
+    </details>
+  </div>
+</header>

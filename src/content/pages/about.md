@@ -1,76 +1,93 @@
 ---
-title: About
-seo:
-  description: Lumière Skin is a clean beauty house founded in Paris, crafting transparent, high-performance skincare and makeup for every skin type. Meet the team behind the glow.
-  canonical: /about
-  featured_image: https://placehold.co/1200x630.png
-  image_alt: The Lumière Skin founding team in the Paris studio
+title: About Lumière Skin
 content_blocks:
-  - component: hero
-    eyebrow: Our story
-    title: Born in a Parisian apothecary
-    subtitle: Lumière Skin began with a simple belief — that beautiful skin shouldn't come at the cost of your health or the planet.
-    image: https://picsum.photos/seed/lumiere-about-hero/1200/1400
-    image_alt: Sunlit Parisian apothecary interior
-    cta_label: Meet the team
-    cta_url: "#team"
-    secondary_label: Our ingredients
-    secondary_url: /ingredients
+  - _name: global/hero
+    heading: "A small studio with a big glow"
+    subheading: "Lumière Skin began in a Paris apartment with one question: why is clean skincare so complicated?"
+    image: "https://placehold.co/1200x900/f6e7e9/b76e79?text=Our+Story"
+    image_alt: "The founders of Lumière Skin in the Paris studio"
+    primary_button:
+      text: "Shop the range"
+      link: "/shop"
+    secondary_button:
+      text: "Meet the team"
+      link: "#team"
+    show_secondary_button: true
 
-  - component: image_text
-    eyebrow: Why we exist
-    heading: Skincare should be honest
-    body: We were tired of long ingredient lists we couldn't pronounce and claims we couldn't trust. So we built Lumière Skin to publish every formula, test everything, and prove that clean and effective can be the same thing.
-    image: https://picsum.photos/seed/lumiere-about-1/1000/1250
-    image_alt: Founder blending a serum in the lab
-    cta_label: Explore the range
-    cta_url: /products
+  - _name: global/content-block
+    heading: "Our story"
+    subheading: "From kitchen bench to bathroom shelf."
+    content: "<p>We started by mixing serums for friends with reactive skin who were tired of choosing between 'natural' and 'effective'. Today every Lumière formula is developed with dermatologists, made in small batches, and shipped worldwide — without ever compromising on what goes in (or what stays out).</p>"
 
-  - component: features
-    eyebrow: What we stand for
-    heading: Our promises to your skin
-    items:
-      - icon: "✿"
-        title: Full transparency
-        description: Every ingredient, every concentration, every supplier — published and explained.
-      - icon: "❖"
-        title: Proven performance
-        description: Clinical and user studies back each claim we make.
-      - icon: "✦"
-        title: Planet-positive
-        description: Refillable glass, recycled cartons and carbon-neutral shipping.
-      - icon: "❀"
-        title: Inclusive beauty
-        description: Shades and routines developed for every skin tone and type.
+  - _name: global/stats
+    heading: "The numbers behind the glow"
+    subheading: ""
+    stats:
+      - value: "40k+"
+        label: "Happy customers"
+      - value: "4.9★"
+        label: "Average rating"
+      - value: "100%"
+        label: "Vegan & cruelty-free"
+      - value: "12"
+        label: "Lip shades"
 
-  - component: team
-    id: team
-    eyebrow: The people
-    heading: Meet the Lumière lab
-    subheading: A small, obsessed team of formulators, estheticians and artists.
+  - _name: global/team-grid
+    heading: "The team"
+    subheading: "The faces (and skin) behind the brand."
     members:
-      - name: Camille Laurent
-        role: Founder & Formulator
-        image: https://picsum.photos/seed/lumiere-camille/400/400
-        image_alt: Portrait of Camille Laurent
-      - name: Élise Moreau
-        role: Head of Research
-        image: https://picsum.photos/seed/lumiere-elise/400/400
-        image_alt: Portrait of Élise Moreau
-      - name: Juno Park
-        role: Lead Makeup Artist
-        image: https://picsum.photos/seed/lumiere-juno/400/400
-        image_alt: Portrait of Juno Park
-      - name: Théo Bernard
-        role: Sustainability Lead
-        image: https://picsum.photos/seed/lumiere-theo/400/400
-        image_alt: Portrait of Théo Bernard
+      - name: "Camille Laurent"
+        role: "Founder & Formulator"
+        bio: "Cosmetic chemist who believes clean should mean effective."
+        image: "https://placehold.co/400x400/f6e7e9/b76e79?text=Camille"
+        image_alt: "Camille Laurent, founder"
+      - name: "Theo Marchand"
+        role: "Head of Product"
+        bio: "Obsessed with texture and the perfect finish."
+        image: "https://placehold.co/400x400/f6e7e9/b76e79?text=Theo"
+        image_alt: "Theo Marchand, head of product"
+      - name: "Inès Roche"
+        role: "Community & Education"
+        bio: "Writes the routines you actually follow."
+        image: "https://placehold.co/400x400/f6e7e9/b76e79?text=In%C3%A8s"
+        image_alt: "Inès Roche, community lead"
+      - name: "Noah Becker"
+        role: "Sustainability Lead"
+        bio: "Making refillable the default, not the exception."
+        image: "https://placehold.co/400x400/f6e7e9/b76e79?text=Noah"
+        image_alt: "Noah Becker, sustainability lead"
 
-  - component: cta
-    eyebrow: Join us
-    heading: Grow your glow with Lumière
-    subheading: Get routine tips, early launches and 10% off your first order.
-    cta_label: Book a consultation
-    cta_url: /contact
-    note: We send beauty, never spam.
+  - _name: global/testimonials
+    heading: "In their words"
+    subheading: "What the community tells us."
+    testimonials:
+      - quote: "Lumière feels like a brand that actually listens to skin, not trends."
+        name: "Beauty editor, Glamour"
+        role: "Press"
+        image: ""
+        image_alt: ""
+      - quote: "The refill program means I never throw away a bottle I love."
+        name: "Sofia R."
+        role: "Verified buyer"
+        image: ""
+        image_alt: ""
+
+  - _name: global/cta
+    heading: "Come glow with us"
+    subheading: "Join the list for launches, routines and 10% off your first order."
+    primary_button:
+      text: "Shop now"
+      link: "/shop"
+    secondary_button:
+      text: "Contact us"
+      link: "/contact"
+    show_secondary_button: true
+    tone: accent
+
+seo:
+  page_description: "The story behind Lumière Skin — a Paris studio making clean, effective, vegan skincare and makeup for real skin."
+  canonical_url: "https://lumiereskin.example.com/about"
+  featured_image: "https://placehold.co/1200x630/f6e7e9/b76e79?text=About+Lumi%C3%A8re"
+  open_graph_type: website
+  no_index: false
 ---

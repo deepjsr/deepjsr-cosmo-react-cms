@@ -1,0 +1,47 @@
+---
+import '../styles/global.css';
+import ThemeInjector from '../components/shared/ThemeInjector.astro';
+import Navigation from '../components/layouts/Navigation.astro';
+import Footer from '../components/layouts/Footer.astro';
+import { SEO } from 'astro-seo';
+import site from '../../data/site.json';
+
+const { title, description, image, noindex = false } = Astro.props;
+const pageTitle = title ? `${title} · ${site.site_title}` : site.site_title;
+const desc = description || site.description;
+const ogImage = image || site.default_og_image;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href={site.favicon} />
+    <meta name="generator" content={Astro.generator} />
+    <SEO
+      title={pageTitle}
+      description={desc}
+      canonical={Astro.url.href}
+      openGraph={{
+        basic: { title: pageTitle, type: 'website', image: ogImage, url: Astro.url.href },
+      }}
+      twitter={{
+        creator: site.twitter_site,
+        card: 'summary_large_image',
+        image: ogImage,
+        title: pageTitle,
+        description: desc,
+      }}
+      noindex={noindex}
+    />
+    <ThemeInjector />
+  </head>
+  <body class="flex min-h-screen flex-col">
+    <Navigation />
+    <div class="flex-1">
+      <slot />
+    </div>
+    <Footer />
+  </body>
+</html>

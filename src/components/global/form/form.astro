@@ -1,0 +1,55 @@
+---
+const { heading = '', subheading = '', submit_label = 'Submit', fields = [] } = Astro.props;
+---
+
+<section class="py-16 sm:py-24">
+  <div class="container-page max-w-2xl">
+    {heading && <h2 class="text-3xl font-semibold sm:text-4xl">{heading}</h2>}
+    {subheading && <p class="mt-4 text-lg text-muted">{subheading}</p>}
+    <form class="mt-8 space-y-5 rounded-[var(--theme-radius)] border border-black/5 bg-surface p-8 shadow-sm" action="#" method="post">
+      {
+        fields.map((f: any) => (
+          <div>
+            <label class="mb-1 block text-sm font-medium">{f.label}</label>
+            {f.type === 'textarea' ? (
+              <textarea
+                name={f.label}
+                placeholder={f.placeholder || ''}
+                required={f.required || false}
+                rows="4"
+                class="w-full rounded-[var(--theme-radius)] border border-black/10 bg-background px-4 py-3 focus:border-primary focus:outline-none"
+              ></textarea>
+            ) : f.type === 'select' ? (
+              <select
+                name={f.label}
+                required={f.required || false}
+                class="w-full rounded-[var(--theme-radius)] border border-black/10 bg-background px-4 py-3 focus:border-primary focus:outline-none"
+              >
+                <option value="" selected disabled>
+                  {f.placeholder || 'Choose an option'}
+                </option>
+                 {(f.options || []).map((opt: any) => (
+                  <option value={opt}>{opt}</option>
+                ))}
+              </select>
+            ) : (
+              <input
+                type={f.type || 'text'}
+                name={f.label}
+                placeholder={f.placeholder || ''}
+                required={f.required || false}
+                class="w-full rounded-[var(--theme-radius)] border border-black/10 bg-background px-4 py-3 focus:border-primary focus:outline-none"
+              />
+            )}
+          </div>
+        ))
+      }
+      <button
+        type="submit"
+        class="w-full inline-flex items-center justify-center rounded-[var(--theme-radius)] bg-primary px-6 py-3 text-sm font-medium text-white transition-opacity hover:opacity-90"
+      >
+        {submit_label}
+      </button>
+    </form>
+  </div>
+</section>

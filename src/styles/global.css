@@ -1,33 +1,40 @@
 @import 'tailwindcss';
 @plugin '@tailwindcss/typography';
 
-/* Theme tokens are injected on :root from src/data/theme.json via the layout.
-   These defaults keep the site presentable before CloudCannon hydrates them. */
+/*
+  Theme tokens.
+  The runtime values (--theme-*) are injected by ThemeInjector.astro from
+  data/theme.json. The :root block below are safe fallbacks so the site still
+  renders before CloudCannon overrides them.
+*/
 :root {
-  --color-primary: #b76e79;
-  --color-primary-foreground: #fffaf7;
-  --color-accent: #d4af7a;
-  --color-bg: #fffaf7;
-  --color-surface: #fdeef0;
-  --color-ink: #2b2326;
-  --color-muted: #8a7d80;
-  --font-display: 'Cormorant Garamond', ui-serif, Georgia, serif;
-  --font-body: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --theme-primary: #b76e79;
+  --theme-secondary: #f6e7e9;
+  --theme-accent: #c9a24b;
+  --theme-background: #fffaf8;
+  --theme-surface: #ffffff;
+  --theme-text: #2b2320;
+  --theme-muted: #8a7d78;
+  --theme-font-heading: 'Playfair Display', Georgia, serif;
+  --theme-font-body: 'Inter', system-ui, sans-serif;
+  --theme-radius: 1rem;
+  --theme-spacing: 1.5rem;
 }
 
-@theme inline {
-  --color-primary: var(--color-primary);
-  --color-primary-foreground: var(--color-primary-foreground);
-  --color-accent: var(--color-accent);
-  --color-bg: var(--color-bg);
-  --color-surface: var(--color-surface);
-  --color-ink: var(--color-ink);
-  --color-muted: var(--color-muted);
+@theme {
+  --color-primary: var(--theme-primary);
+  --color-secondary: var(--theme-secondary);
+  --color-accent: var(--theme-accent);
+  --color-background: var(--theme-background);
+  --color-surface: var(--theme-surface);
+  --color-ink: var(--theme-text);
+  --color-muted: var(--theme-muted);
 
-  --font-display: var(--font-display);
-  --font-body: var(--font-body);
+  --font-heading: var(--theme-font-heading);
+  --font-body: var(--theme-font-body);
 
-  --radius-card: 1rem;
+  --radius-card: var(--theme-radius);
+  --spacing-section: var(--theme-spacing);
 }
 
 html {
@@ -35,21 +42,35 @@ html {
 }
 
 body {
-  background-color: var(--color-bg);
+  background-color: var(--color-background);
   color: var(--color-ink);
   font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
 }
 
-.font-display {
-  font-family: var(--font-display);
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--color-ink);
+  letter-spacing: -0.01em;
 }
 
-h1, h2, h3, .font-display {
-  font-family: var(--font-display);
+/* Utility helpers used across content blocks */
+.container-page {
+  width: 100%;
+  max-width: 72rem;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
 }
 
-/* Editable region affordances for CloudCannon */
-[data-cms-editable] {
-  outline: none;
+.bg-primary-soft { background-color: color-mix(in oklab, var(--color-primary) 12%, white); }
+
+/* Prose tweaks for blog posts */
+.prose :where(a) { color: var(--color-primary); }
+.prose :where(h2, h3) { font-family: var(--font-heading); }
+
+/* FAQ accordion */
+details.faq-item > summary {
+  list-style: none;
+  cursor: pointer;
 }
+details.faq-item > summary::-webkit-details-marker { display: none; }

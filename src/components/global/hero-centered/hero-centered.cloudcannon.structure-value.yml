@@ -1,0 +1,29 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/hero-centered
+  heading: Your headline goes here
+  subheading: A short supporting line that sets the tone.
+  image: /images/placeholders/hero.jpg
+  image_alt: Describe the hero image
+  primary_button:
+    text: Shop now
+    link: /shop
+  secondary_button:
+    text: Learn more
+    link: /about
+  show_secondary_button: true
+_inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  image:
+    type: image
+  primary_button:
+    type: object
+    nested: true
+  secondary_button:
+    type: object
+    nested: true
+  show_secondary_button:
+    type: switch

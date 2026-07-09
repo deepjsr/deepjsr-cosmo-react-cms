@@ -1,0 +1,21 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/docs-grid
+  heading: Browse the guides
+  subheading: Pick a topic to dive in.
+  cards:
+    -
+            icon: ✿
+            title: Getting started
+            text: Set up your routine.
+            link: /blog
+      _inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  cards:
+    type: array
+    element:
+      type: object
+      nested: true

@@ -1,0 +1,26 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/image-text
+  heading: A ritual worth keeping
+  subheading: How to use it.
+  image: /images/placeholders/product-01.jpg
+  image_alt: Product photo
+  text: Apply morning and night after cleansing.
+  button:
+    text: Shop the range
+    link: /shop
+  reverse: false
+_inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  image:
+    type: image
+  text:
+    type: textarea
+  button:
+    type: object
+    nested: true
+  reverse:
+    type: switch

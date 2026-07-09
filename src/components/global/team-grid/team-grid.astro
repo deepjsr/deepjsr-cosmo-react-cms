@@ -1,0 +1,25 @@
+---
+import SectionWrapper from '../../shared/SectionWrapper.astro';
+
+const { heading = '', subheading = '', members = [] } = Astro.props;
+---
+
+<SectionWrapper heading={heading} subheading={subheading}>
+  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      members.map((m: any) => (
+        <div class="text-center">
+          <img
+            src={m.image || 'https://placehold.co/400x400?text=Lumi%C3%A8re'}
+            alt={m.image_alt || m.name || ''}
+            class="mx-auto h-40 w-40 rounded-full object-cover shadow-sm"
+            loading="lazy"
+          />
+          <h3 class="mt-4 text-lg font-semibold">{m.name}</h3>
+          {m.role && <p class="text-sm text-primary">{m.role}</p>}
+          {m.bio && <p class="mt-2 text-sm text-muted">{m.bio}</p>}
+        </div>
+      ))
+    }
+  </div>
+</SectionWrapper>

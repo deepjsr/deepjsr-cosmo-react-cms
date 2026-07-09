@@ -1,0 +1,35 @@
+---
+import SectionWrapper from '../../shared/SectionWrapper.astro';
+
+const { heading = '', subheading = '', url = '', caption = '' } = Astro.props;
+
+// Convert common share links into embeddable URLs.
+function embed(src: string): string {
+  if (!src) return '';
+  let u = src;
+  if (u.includes('youtu.be/')) u = u.replace('youtu.be/', 'youtube.com/embed/');
+  else if (u.includes('youtube.com/watch?v=')) u = u.replace('watch?v=', 'embed/');
+  if (u.includes('vimeo.com/') && !u.includes('player.vimeo.com')) {
+    const id = u.split('/').pop();
+    u = `https://player.vimeo.com/video/${id}`;
+  }
+  return u;
+}
+---
+
+<SectionWrapper heading={heading} subheading={subheading}>
+  {
+    url && (
+      <div class="mx-auto aspect-video max-w-4xl overflow-hidden rounded-[var(--theme-radius)] shadow-md">
+        <iframe
+          src={embed(url)}
+          title={caption || heading || 'Embedded video'}
+          class="h-full w-full"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    )
+  }
+  {caption && <p class="mt-4 text-center text-sm text-muted">{caption}</p>}
+</SectionWrapper>

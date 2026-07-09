@@ -1,25 +1,26 @@
 import { defineCollection, z } from 'astro:content';
 import { glob } from 'astro/loaders';
 
+const contentBlock = z.object({
+  _name: z.string(),
+  _id: z.string().optional(),
+});
+
 const seoSchema = z.object({
-  description: z.string().default(''),
-  canonical: z.string().optional(),
+  page_description: z.string().optional(),
+  canonical_url: z.string().optional(),
   featured_image: z.string().optional(),
-  image_alt: z.string().optional(),
+  open_graph_type: z.string().optional().default('website'),
+  no_index: z.boolean().optional().default(false),
+  title: z.string().optional(),
 });
 
 const pages = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/pages' }),
   schema: z.object({
     title: z.string(),
-    seo: seoSchema,
-    content_blocks: z
-      .array(
-        z.object({
-          component: z.string(),
-        }).passthrough()
-      )
-      .default([]),
+    content_blocks: z.array(z.any()).optional().default([]),
+    seo: seoSchema.optional(),
   }),
 });
 
@@ -27,13 +28,14 @@ const posts = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/posts' }),
   schema: z.object({
     title: z.string(),
+    description: z.string().optional(),
+    author: z.string().optional(),
     date: z.coerce.date(),
-    excerpt: z.string().default(''),
-    author: z.string().default('Lumière Skin'),
-    category: z.string().default('Routines'),
-    hero_image: z.string().optional(),
+    image: z.string().optional(),
     image_alt: z.string().optional(),
-    seo: seoSchema,
+    tags: z.array(z.string()).optional().default([]),
+    draft: z.boolean().optional().default(false),
+    seo: seoSchema.optional(),
   }),
 });
 

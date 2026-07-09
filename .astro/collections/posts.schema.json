@@ -7,6 +7,12 @@
         "title": {
           "type": "string"
         },
+        "description": {
+          "type": "string"
+        },
+        "author": {
+          "type": "string"
+        },
         "date": {
           "anyOf": [
             {
@@ -23,38 +29,44 @@
             }
           ]
         },
-        "excerpt": {
-          "type": "string",
-          "default": ""
-        },
-        "author": {
-          "type": "string",
-          "default": "Lumière Skin"
-        },
-        "category": {
-          "type": "string",
-          "default": "Routines"
-        },
-        "hero_image": {
+        "image": {
           "type": "string"
         },
         "image_alt": {
           "type": "string"
         },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": []
+        },
+        "draft": {
+          "type": "boolean",
+          "default": false
+        },
         "seo": {
           "type": "object",
           "properties": {
-            "description": {
-              "type": "string",
-              "default": ""
+            "page_description": {
+              "type": "string"
             },
-            "canonical": {
+            "canonical_url": {
               "type": "string"
             },
             "featured_image": {
               "type": "string"
             },
-            "image_alt": {
+            "open_graph_type": {
+              "type": "string",
+              "default": "website"
+            },
+            "no_index": {
+              "type": "boolean",
+              "default": false
+            },
+            "title": {
               "type": "string"
             }
           },
@@ -66,8 +78,7 @@
       },
       "required": [
         "title",
-        "date",
-        "seo"
+        "date"
       ],
       "additionalProperties": false
     }

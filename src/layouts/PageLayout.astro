@@ -1,0 +1,16 @@
+---
+import Layout from './Layout.astro';
+import ContentBlocks from '../components/global/ContentBlocks.astro';
+
+const { title, content_blocks = [], seo } = Astro.props;
+---
+
+<Layout
+  title={title}
+  description={seo?.page_description}
+  image={seo?.featured_image}
+  noindex={seo?.no_index}
+>
+  <ContentBlocks blocks={content_blocks} />
+  <slot />
+</Layout>

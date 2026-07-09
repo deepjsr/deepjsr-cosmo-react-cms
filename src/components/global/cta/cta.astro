@@ -1,0 +1,31 @@
+---
+import Button from '../../shared/Button.astro';
+
+const {
+  heading = '',
+  subheading = '',
+  primary_button = {},
+  secondary_button = {},
+  show_secondary_button = false,
+  tone = 'primary',
+} = Astro.props;
+
+const toneClass = tone === 'accent' ? 'bg-accent text-white' : 'bg-primary text-white';
+---
+
+<section class="py-16 sm:py-24">
+  <div class="container-page">
+    <div class={`rounded-[var(--theme-radius)] ${toneClass} px-8 py-14 text-center`}>
+      {heading && <h2 class="text-3xl font-semibold sm:text-4xl">{heading}</h2>}
+      {subheading && <p class="mx-auto mt-4 max-w-2xl text-lg opacity-90">{subheading}</p>}
+      <div class="mt-8 flex flex-wrap justify-center gap-4">
+        <Button text={primary_button.text} link={primary_button.link} variant="secondary" />
+        {
+          show_secondary_button && secondary_button?.text && (
+            <Button text={secondary_button.text} link={secondary_button.link} variant="ghost" class="text-white hover:bg-white/10" />
+          )
+        }
+      </div>
+    </div>
+  </div>
+</section>

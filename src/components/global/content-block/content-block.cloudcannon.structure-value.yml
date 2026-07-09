@@ -1,0 +1,13 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/content-block
+  heading: Editable section
+  subheading: Add your own content.
+  content: "<p>Write anything here.</p>"
+_inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  content:
+    type: wysiwyg

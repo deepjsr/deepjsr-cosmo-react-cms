@@ -1,0 +1,38 @@
+---
+import Button from '../../shared/Button.astro';
+
+const {
+  heading = '',
+  subheading = '',
+  image = 'https://placehold.co/1200x700?text=Lumi%C3%A8re',
+  image_alt = '',
+  primary_button = {},
+  secondary_button = {},
+  show_secondary_button = false,
+} = Astro.props;
+---
+
+<section class="py-16 sm:py-24 text-center">
+  <div class="container-page max-w-3xl">
+    {heading && <h1 class="text-4xl font-semibold sm:text-5xl">{heading}</h1>}
+    {subheading && <p class="mx-auto mt-6 max-w-2xl text-lg text-muted">{subheading}</p>}
+    <div class="mt-8 flex flex-wrap justify-center gap-4">
+      <Button text={primary_button.text} link={primary_button.link} variant="primary" />
+      {
+        show_secondary_button && secondary_button?.text && (
+          <Button text={secondary_button.text} link={secondary_button.link} variant="secondary" />
+        )
+      }
+    </div>
+    {
+      image && (
+        <img
+          src={image}
+          alt={image_alt || heading}
+          class="mx-auto mt-12 w-full rounded-[var(--theme-radius)] object-cover shadow-lg"
+          loading="lazy"
+        />
+      )
+    }
+  </div>
+</section>

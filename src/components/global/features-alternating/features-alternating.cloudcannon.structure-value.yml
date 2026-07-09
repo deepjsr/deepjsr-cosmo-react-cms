@@ -1,0 +1,21 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/features-alternating
+  heading: Inside the formula
+  subheading: What makes each product special.
+  rows:
+    -
+            image: /images/placeholders/product-01.jpg
+            image_alt: Product photo
+            title: Hydra-Glow Serum
+            text: "A lightweight serum for dewy, hydrated skin."
+      _inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  rows:
+    type: array
+    element:
+      type: object
+      nested: true

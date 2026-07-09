@@ -1,0 +1,59 @@
+---
+// Maps `content_blocks` entries (via `_name: global/<component>`) to the
+// matching Astro component and renders them in order. This is the bridge
+// between CloudCannon content and the rendered page.
+import Hero from './hero/hero.astro';
+import HeroCentered from './hero-centered/hero-centered.astro';
+import SectionHeader from './section-header/section-header.astro';
+import FeaturesGrid from './features-grid/features-grid.astro';
+import FeaturesAlternating from './features-alternating/features-alternating.astro';
+import ImageText from './image-text/image-text.astro';
+import LogoCloud from './logo-cloud/logo-cloud.astro';
+import Testimonials from './testimonials/testimonials.astro';
+import Faq from './faq/faq.astro';
+import Cta from './cta/cta.astro';
+import CtaSplit from './cta-split/cta-split.astro';
+import PricingTable from './pricing-table/pricing-table.astro';
+import TeamGrid from './team-grid/team-grid.astro';
+import Stats from './stats/stats.astro';
+import Countdown from './countdown/countdown.astro';
+import Curriculum from './curriculum/curriculum.astro';
+import Instructor from './instructor/instructor.astro';
+import DocsGrid from './docs-grid/docs-grid.astro';
+import Form from './form/form.astro';
+import VideoEmbed from './video-embed/video-embed.astro';
+import ContentBlock from './content-block/content-block.astro';
+
+const components = {
+  'global/hero': Hero,
+  'global/hero-centered': HeroCentered,
+  'global/section-header': SectionHeader,
+  'global/features-grid': FeaturesGrid,
+  'global/features-alternating': FeaturesAlternating,
+  'global/image-text': ImageText,
+  'global/logo-cloud': LogoCloud,
+  'global/testimonials': Testimonials,
+  'global/faq': Faq,
+  'global/cta': Cta,
+  'global/cta-split': CtaSplit,
+  'global/pricing-table': PricingTable,
+  'global/team-grid': TeamGrid,
+  'global/stats': Stats,
+  'global/countdown': Countdown,
+  'global/curriculum': Curriculum,
+  'global/instructor': Instructor,
+  'global/docs-grid': DocsGrid,
+  'global/form': Form,
+  'global/video-embed': VideoEmbed,
+  'global/content-block': ContentBlock,
+};
+
+const blocks = Astro.props.blocks ?? [];
+---
+
+{
+  blocks.map((block: any) => {
+    const Comp = components[block._name as keyof typeof components];
+    return Comp ? <Comp {...block} /> : null;
+  })
+}

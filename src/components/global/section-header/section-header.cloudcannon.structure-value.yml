@@ -1,0 +1,17 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/section-header
+  heading: Section title
+  subheading: A supporting line.
+  align: center
+_inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  align:
+    type: select
+    options:
+      values:
+        - center
+        - left

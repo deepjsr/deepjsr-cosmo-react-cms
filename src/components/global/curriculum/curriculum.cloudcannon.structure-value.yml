@@ -1,0 +1,22 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/curriculum
+  heading: What you’ll learn
+  subheading: A complete path to mastery.
+  modules:
+    -
+            title: "Module 1: Foundations"
+            description: Understand your skin type.
+            lessons:
+              - Cleansing
+              - Hydration
+      _inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  modules:
+    type: array
+    element:
+      type: object
+      nested: true

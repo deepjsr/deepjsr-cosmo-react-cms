@@ -1,0 +1,13 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/countdown
+  heading: The countdown is on
+  subheading: "Don't miss our launch."
+  target_date: "2026-12-31T10:00:00"
+_inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  target_date:
+    type: datetime

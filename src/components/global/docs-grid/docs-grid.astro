@@ -1,0 +1,23 @@
+---
+import SectionWrapper from '../../shared/SectionWrapper.astro';
+
+const { heading = '', subheading = '', cards = [] } = Astro.props;
+---
+
+<SectionWrapper heading={heading} subheading={subheading}>
+  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      cards.map((c: any) => (
+        <a
+          href={c.link || '#'}
+          class="block rounded-[var(--theme-radius)] border border-black/5 bg-surface p-6 shadow-sm transition-shadow hover:shadow-md"
+        >
+          {c.icon && <div class="mb-4 text-2xl" aria-hidden="true">{c.icon}</div>}
+          <h3 class="text-xl font-semibold">{c.title}</h3>
+          {c.text && <p class="mt-2 text-muted">{c.text}</p>}
+          {c.link && <span class="mt-4 inline-block text-primary">Read more →</span>}
+        </a>
+      ))
+    }
+  </div>
+</SectionWrapper>

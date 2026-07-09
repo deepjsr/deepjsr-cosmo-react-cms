@@ -1,0 +1,9 @@
+---
+// A reusable page shell used by `PageLayout.astro`. Keeps the outer markup
+// (main element, prose container) consistent across all content pages.
+const { class: className = '' } = Astro.props;
+---
+
+<main class={className}>
+  <slot />
+</main>

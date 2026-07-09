@@ -1,0 +1,21 @@
+---
+import SectionWrapper from '../../shared/SectionWrapper.astro';
+
+const { heading = '', subheading = '', logos = [] } = Astro.props;
+---
+
+<SectionWrapper heading={heading} subheading={subheading}>
+  <div class="flex flex-wrap items-center justify-center gap-10 opacity-80">
+    {
+      logos.map((logo: any) => (
+        <a href={logo.link || '#'} class="transition-opacity hover:opacity-100" target="_blank" rel="noopener">
+          {logo.image ? (
+            <img src={logo.image} alt={logo.image_alt || logo.name || 'Logo'} class="h-10 w-auto object-contain" loading="lazy" />
+          ) : (
+            <span class="text-xl font-semibold text-muted">{logo.name}</span>
+          )}
+        </a>
+      ))
+    }
+  </div>
+</SectionWrapper>

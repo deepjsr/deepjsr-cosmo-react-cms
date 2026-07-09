@@ -1,25 +1,23 @@
 ---
-import { getCollection } from 'astro:content';
-import BaseLayout from '../layouts/BaseLayout.astro';
-import PageBlocks from '../components/PageBlocks.tsx';
+import { getCollection, render } from 'astro:content';
+import PageLayout from '../layouts/PageLayout.astro';
 
 export async function getStaticPaths() {
   const pages = await getCollection('pages');
-  return pages
-    .filter((p) => p.id !== 'home')
-    .map((p) => ({
-      params: { slug: p.id },
-      props: { page: p },
-    }));
+  return pages.map((page) => ({
+    params: { slug: page.id === 'index' ? undefined : page.id },
+    props: { page },
+  }));
 }
+
+const { page } = Astro.props;
+const { Content } = await render(page);
 ---
 
-<BaseLayout
-  title={`${Astro.props.page.data.title} — Lumière Skin`}
-  description={Astro.props.page.data.seo.description}
-  image={Astro.props.page.data.seo.featured_image}
-  imageAlt={Astro.props.page.data.seo.image_alt}
-  canonical={Astro.props.page.data.seo.canonical}
+<PageLayout
+  title={page.data.title}
+  content_blocks={page.data.content_blocks}
+  seo={page.data.seo}
 >
-  <PageBlocks blocks={Astro.props.page.data.content_blocks} />
-</BaseLayout>
+  <Content />
+</PageLayout>

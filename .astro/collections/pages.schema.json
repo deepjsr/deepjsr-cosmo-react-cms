@@ -7,48 +7,42 @@
         "title": {
           "type": "string"
         },
+        "content_blocks": {
+          "type": "array",
+          "default": []
+        },
         "seo": {
           "type": "object",
           "properties": {
-            "description": {
-              "type": "string",
-              "default": ""
+            "page_description": {
+              "type": "string"
             },
-            "canonical": {
+            "canonical_url": {
               "type": "string"
             },
             "featured_image": {
               "type": "string"
             },
-            "image_alt": {
+            "open_graph_type": {
+              "type": "string",
+              "default": "website"
+            },
+            "no_index": {
+              "type": "boolean",
+              "default": false
+            },
+            "title": {
               "type": "string"
             }
           },
           "additionalProperties": false
-        },
-        "content_blocks": {
-          "type": "array",
-          "items": {
-            "type": "object",
-            "properties": {
-              "component": {
-                "type": "string"
-              }
-            },
-            "required": [
-              "component"
-            ],
-            "additionalProperties": true
-          },
-          "default": []
         },
         "$schema": {
           "type": "string"
         }
       },
       "required": [
-        "title",
-        "seo"
+        "title"
       ],
       "additionalProperties": false
     }

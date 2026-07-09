@@ -1,0 +1,22 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/stats
+  heading: By the numbers
+  subheading: A few things we’re proud of.
+  stats:
+    -
+            value: 10k+
+            label: Happy customers
+          -
+            value: 4.9★
+            label: Average rating
+      _inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  stats:
+    type: array
+    element:
+      type: object
+      nested: true

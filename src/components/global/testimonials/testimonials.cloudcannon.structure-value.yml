@@ -1,0 +1,22 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/testimonials
+  heading: Loved by skin enthusiasts
+  subheading: Real reviews from real customers.
+  testimonials:
+    -
+            quote: My skin has never looked better.
+            name: Amara K.
+            role: Verified buyer
+            image: ""
+            image_alt: ""
+      _inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  testimonials:
+    type: array
+    element:
+      type: object
+      nested: true

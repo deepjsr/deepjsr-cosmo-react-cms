@@ -1,0 +1,28 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/cta-split
+  heading: Start your routine
+  subheading: Build a regimen that works for you.
+  image: /images/placeholders/product-01.jpg
+  image_alt: Product photo
+  primary_button:
+    text: Take the quiz
+    link: /contact
+  list:
+    - Personalised advice
+    - Free shipping over $50
+    - 30-day returns
+_inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  image:
+    type: image
+  primary_button:
+    type: object
+    nested: true
+  list:
+    type: array
+    element:
+      type: text

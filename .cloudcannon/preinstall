@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+# CloudCannon pre-install hook.
+# Ensure a Node 20+ runtime is available before dependencies are installed.
+
+echo "==> preinstall: checking Node version"
+
+if command -v nvm >/dev/null 2>&1; then
+  nvm install 20 || true
+  nvm use 20 || true
+elif command -v n >/dev/null 2>&1; then
+  n 20 || true
+fi
+
+node -v
+npm -v
+
+echo "==> preinstall: done"

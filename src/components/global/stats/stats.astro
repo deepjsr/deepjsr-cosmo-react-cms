@@ -1,0 +1,18 @@
+---
+import SectionWrapper from '../../shared/SectionWrapper.astro';
+
+const { heading = '', subheading = '', stats = [] } = Astro.props;
+---
+
+<SectionWrapper heading={heading} subheading={subheading}>
+  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      stats.map((s: any) => (
+        <div class="text-center">
+          <div class="text-4xl font-semibold text-primary">{s.value}</div>
+          {s.label && <div class="mt-2 text-muted">{s.label}</div>}
+        </div>
+      ))
+    }
+  </div>
+</SectionWrapper>

@@ -1,72 +1,80 @@
 ---
-title: Ingredients
-seo:
-  description: Discover the transparent, skin-loving ingredients behind Lumière Skin — hyaluronic acid, niacinamide, peptides, ceramides and more. Learn what each does and which skin types it suits.
-  canonical: /ingredients
-  featured_image: https://placehold.co/1200x630.png
-  image_alt: Close-up of clean skincare ingredients
+title: Ingredients — what's inside, and why
 content_blocks:
-  - component: hero
-    eyebrow: What's inside
-    title: Ingredients you can actually trust
-    subtitle: No filler, no fluff — just well-studied actives at concentrations that work, explained in plain language.
-    image: https://picsum.photos/seed/lumiere-ing-hero/1200/1400
-    image_alt: Botanical and lab ingredients flatlay
-    cta_label: Shop by ingredient
-    cta_url: /products
-    secondary_label: Book a consult
-    secondary_url: /contact
+  - _name: global/hero
+    heading: "Beauty you can read"
+    subheading: "We list every ingredient, in plain language, and skip the ones your skin doesn't need."
+    image: "https://placehold.co/1200x900/f6e7e9/b76e79?text=Ingredients"
+    image_alt: "Close-up of a serum texture and botanical extracts"
+    primary_button:
+      text: "Shop clean picks"
+      link: "/shop"
+    secondary_button:
+      text: ""
+      link: "#"
+    show_secondary_button: false
 
-  - component: features
-    eyebrow: Key actives
-    heading: The Lumière hero ingredients
+  - _name: global/features-grid
+    heading: "Our hero ingredients"
+    subheading: "The actives we trust, and what they do."
+    features:
+      - icon: "✿"
+        title: "Hyaluronic acid"
+        text: "Holds up to 1000x its weight in water for plump, hydrated skin."
+      - icon: "✿"
+        title: "Niacinamide"
+        text: "Calms redness, refines pores and balances oil over time."
+      - icon: "✿"
+        title: "Vitamin C"
+        text: "Brightens tone and supports collagen for a lit-from-within look."
+      - icon: "✿"
+        title: "Peptides"
+        text: "Signal skin to firm and smooth, especially overnight."
+      - icon: "✿"
+        title: "Squalane"
+        text: "A plant-derived emollient that softens without greasiness."
+      - icon: "✿"
+        title: "Shea butter"
+        text: "Rich, soothing moisture for lips and dry patches."
+
+  - _name: global/image-text
+    heading: "What we leave out"
+    subheading: "Free from the usual suspects."
+    image: "https://placehold.co/1000x800/f6e7e9/b76e79?text=Free+From"
+    image_alt: "A clean label showing 'free from' claims"
+    text: "<p>No parabens, no sulfates, no synthetic fragrance, no animal-derived ingredients and no unnecessary fillers. Every batch is tested for stability and purity before it reaches you.</p>"
+    button:
+      text: "See the full list"
+      link: "/shop"
+    reverse: true
+
+  - _name: global/faq
+    heading: "Ingredient questions"
+    subheading: "Transparency, answered."
     items:
-      - icon: "💧"
-        title: Hyaluronic Acid
-        description: Holds up to 1000× its weight in water to plump and hydrate every skin type."
-      - icon: "✨"
-        title: Niacinamide (B3)
-        description: Calms redness, refines pores and balances excess oil."
-      - icon: "🧬"
-        title: Peptides
-        description: Signal collagen production for firmer, smoother skin."
-      - icon: "🛡️"
-        title: Ceramides
-        description: Rebuild the moisture barrier and lock in hydration."
-      - icon: "🍊"
-        title: Vitamin C
-        description: Brightens tone and defends against free radicals."
-      - icon: "🌿"
-        title: Squalane
-        description: A lightweight, plant-derived emollient that softens skin."
+      - question: "Are your products fragrance-free?"
+        answer: "Our skincare is fragrance-free. Our lip products use a light, skin-safe flavour only."
+      - question: "Where are ingredients sourced?"
+        answer: "We work with audited suppliers in France and Switzerland, prioritising renewable plant sources."
+      - question: "Can I see full INCI lists?"
+        answer: "Yes — every product page lists the complete INCI in descending concentration."
 
-  - component: image_text
-    eyebrow: Our standard
-    heading: Clean, but never at the cost of results
-    body: "We avoid parabens, sulphates, synthetic fragrance, phthalates and known irritants. Where a synthetic ingredient is genuinely safer or more effective, we say so — because honesty is the whole point."
-    image: https://picsum.photos/seed/lumiere-ing-1/1000/1250
-    image_alt: Scientist reviewing an ingredient panel
-    cta_label: Read our promise
-    cta_url: /about
+  - _name: global/cta
+    heading: "Skincare without the guesswork"
+    subheading: "Explore the collection built on ingredients you can trust."
+    primary_button:
+      text: "Shop now"
+      link: "/shop"
+    secondary_button:
+      text: ""
+      link: "#"
+    show_secondary_button: false
+    tone: primary
 
-  - component: faq
-    eyebrow: Ingredient FAQ
-    heading: Your questions, answered
-    items:
-      - question: Are your products non-comedogenic?
-        answer: Yes. Our formulations are designed not to clog pores, making them suitable for acne-prone and oily skin.
-      - question: Do you use synthetic fragrance?
-        answer: No. We are completely free from synthetic fragrance, which is a common cause of sensitised skin.
-      - question: Are the products pregnancy-safe?
-        answer: Most are, but we recommend checking each product's listed actives and consulting your doctor about retinol during pregnancy.
-      - question: Where are ingredients sourced?
-        answer: We work with audited, traceable suppliers and publish our sourcing on every product page.
-
-  - component: cta
-    eyebrow: Curious about your skin?
-    heading: Get a personalised ingredient plan
-    subheading: Book a free consultation and we'll match actives to your skin's needs.
-    cta_label: Book a consultation
-    cta_url: /contact
-    note: Free · No obligation
+seo:
+  page_description: "Discover Lumière Skin's hero ingredients — hyaluronic acid, niacinamide, vitamin C, peptides and more. Clean, transparent and sensitive-skin-safe."
+  canonical_url: "https://lumiereskin.example.com/ingredients"
+  featured_image: "https://placehold.co/1200x630/f6e7e9/b76e79?text=Ingredients"
+  open_graph_type: website
+  no_index: false
 ---

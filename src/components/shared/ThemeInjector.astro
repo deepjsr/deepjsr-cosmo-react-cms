@@ -1,0 +1,29 @@
+---
+// Reads data/theme.json and injects CSS custom properties + Google Fonts.
+// This is what lets editors re-theme the whole site from CloudCannon.
+import theme from '../../../data/theme.json';
+
+const heading = theme.fonts.heading.replace(/ /g, '+');
+const body = theme.fonts.body.replace(/ /g, '+');
+const googleFonts = `https://fonts.googleapis.com/css2?family=${heading}:wght@400;500;600;700&family=${body}:wght@400;500;600;700&display=swap`;
+---
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href={googleFonts} />
+
+<style is:inline>
+  :root {
+    --theme-primary: {theme.colors.primary};
+    --theme-secondary: {theme.colors.secondary};
+    --theme-accent: {theme.colors.accent};
+    --theme-background: {theme.colors.background};
+    --theme-surface: {theme.colors.surface};
+    --theme-text: {theme.colors.text};
+    --theme-muted: {theme.colors.muted};
+    --theme-font-heading: '{theme.fonts.heading}', Georgia, serif;
+    --theme-font-body: '{theme.fonts.body}', system-ui, sans-serif;
+    --theme-radius: {theme.radius};
+    --theme-spacing: {theme.spacing};
+  }
+</style>

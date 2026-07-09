@@ -1,0 +1,17 @@
+{
+  "colors": {
+    "primary": "#b76e79",
+    "secondary": "#f6e7e9",
+    "accent": "#c9a24b",
+    "background": "#fffaf8",
+    "surface": "#ffffff",
+    "text": "#2b2320",
+    "muted": "#8a7d78"
+  },
+  "fonts": {
+    "heading": "Playfair Display",
+    "body": "Inter"
+  },
+  "radius": "1rem",
+  "spacing": "1.5rem"
+}

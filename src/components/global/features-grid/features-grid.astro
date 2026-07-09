@@ -1,0 +1,23 @@
+---
+import SectionWrapper from '../../shared/SectionWrapper.astro';
+
+const { heading = '', subheading = '', features = [] } = Astro.props;
+---
+
+<SectionWrapper heading={heading} subheading={subheading}>
+  <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+    {
+      features.map((f: any) => (
+        <div class="rounded-[var(--theme-radius)] border border-black/5 bg-surface p-6 shadow-sm">
+          {f.icon && (
+            <div class="mb-4 text-2xl" aria-hidden="true">
+              {f.icon}
+            </div>
+          )}
+          <h3 class="text-xl font-semibold">{f.title}</h3>
+          {f.text && <p class="mt-2 text-muted">{f.text}</p>}
+        </div>
+      ))
+    }
+  </div>
+</SectionWrapper>

@@ -1,0 +1,19 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/faq
+  heading: Frequently asked questions
+  subheading: Everything you need to know.
+  items:
+    -
+            question: "Is it suitable for sensitive skin?"
+            answer: "Yes, our formulas are dermatologist tested."
+      _inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  items:
+    type: array
+    element:
+      type: object
+      nested: true

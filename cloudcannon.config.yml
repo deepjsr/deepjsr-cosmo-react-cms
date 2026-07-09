@@ -1,52 +1,182 @@
-# CloudCannon configuration for Lumière Skin
-# Tech stack is managed in package.json / astro.config.mjs — do not change here.
+# CloudCannon configuration for the Chaipress / Astro CMS template.
+# https://docs.cloudcannon.com/
 
-_global_data:
-  path: src/data
-  schemas:
-    site:
-      path: src/data/site.json
-    navigation:
-      path: src/data/navigation.json
-    footer:
-      path: src/data/footer.json
-    social:
-      path: src/data/social.json
-    theme:
-      path: src/data/theme.json
+_paths:
+  static: /public
+  uploads: /public/images
+  data: /data
 
-_collections:
+# ----- Editor config -----
+_editables:
+  theme:
+    _source: data/theme.json
+
+# ----- Collections -----
+collections_config:
   pages:
-    path: src/content/pages/**
-    url: "{slug}"
-    view: [visual, content]
-  posts:
-    path: src/content/posts/**
-    url: "/blog/{slug}"
-    view: [visual, content]
+    path: src/content/pages
+    include: "**/*.md"
+    schemas_path: .cloudcannon/schemas
+    add_options:
+      - label: "Standard Page"
+        schema: page
+      - label: "SaaS Landing"
+        schema: saas-landing
+      - label: "Course Sales"
+        schema: course-sales
+      - label: "Docs Homepage"
+        schema: docs-homepage
+      - label: "Webinar Registration"
+        schema: webinar-registration
+      - label: "About / Team"
+        schema: about-team
+      - label: "Pricing"
+        schema: pricing
+    _inputs:
+      content_blocks:
+        type: array
+        element:
+          type: structure
+          groups: content_blocks
+      seo:
+        type: object
+        nested: true
 
+  posts:
+    path: src/content/posts
+    include: "**/*.md"
+    schemas_path: .cloudcannon/schemas
+    add_options:
+      - label: "Blog Post"
+        schema: post
+    sort:
+      by: date
+      order: descending
+    _inputs:
+      tags:
+        type: array
+        element:
+          type: select
+          options:
+            values:
+              - skincare
+              - makeup
+              - haircare
+              - ingredients
+              - routines
+              - news
+      draft:
+        type: switch
+      image:
+        type: image
+
+  data:
+    path: data
+    include: "*.json"
+    _inputs:
+      "*.json":
+        type: object
+        nested: true
+
+collection_groups:
+  - label: "Pages"
+    collections:
+      - pages
+  - label: "Blog"
+    collections:
+      - posts
+  - label: "Site Settings"
+    collections:
+      - data
+
+# ----- Global input types -----
 _inputs:
-  date:
-    type: date
-  hero_image:
-    type: image
-    comment: "Swap the placeholder URL for a local file in /images/placeholders/"
+  text:
+    type: text
+  textarea:
+    type: textarea
   image:
     type: image
-    comment: "Swap the placeholder URL for a local file in /images/placeholders/"
-  featured_image:
-    type: image
-    comment: "Placeholder image — replace with a real asset before launch."
-  image_alt:
-    comment: "Describe the image for screen readers."
+  color:
+    type: color
+  switch:
+    type: switch
+  url:
+    type: url
+  select_font:
+    type: select
+    options:
+      values:
+        - "Playfair Display"
+        - "Inter"
+        - "Lora"
+        - "Montserrat"
+        - "Cormorant Garamond"
+        - "Work Sans"
+        - "Poppins"
+        - "Georgia"
+  select_radius:
+    type: select
+    options:
+      values:
+        - "0rem"
+        - "0.25rem"
+        - "0.5rem"
+        - "0.75rem"
+        - "1rem"
+        - "1.5rem"
+        - "2rem"
+        - "9999px"
+  select_spacing:
+    type: select
+    options:
+      values:
+        - "0.5rem"
+        - "1rem"
+        - "1.5rem"
+        - "2rem"
+        - "3rem"
+        - "4rem"
+
+# ----- Structures (auto-discovery of global components) -----
+_structures:
   content_blocks:
-    type: array
-    comment: "Page sections. Add, reorder and edit blocks to build the page."
-
-editor:
-  preview:
-    wrap_in: src/layouts/BaseLayout.astro
-    path: /{slug}
-  default_view: visual
-
-# Editable regions are provided by @cloudcannon/editable-regions (see astro.config.mjs).
+    values_from_glob: /src/components/**/*.cloudcannon.structure-value.yml
+  social_links:
+    values:
+      - value:
+          _name: social_link
+          platform: Instagram
+          url: https://instagram.com
+        preview: "{{ value.platform }}"
+      - value:
+          _name: social_link
+          platform: TikTok
+          url: https://tiktok.com
+        preview: "{{ value.platform }}"
+      - value:
+          _name: social_link
+          platform: Pinterest
+          url: https://pinterest.com
+        preview: "{{ value.platform }}"
+  nav_items:
+    values:
+      - value:
+          _name: nav_item
+          text: Home
+          link: /
+        preview: "{{ value.text }}"
+  footer_sections:
+    values:
+      - value:
+          _name: footer_section
+          title: Shop
+          links: []
+        preview: "{{ value.title }}"
+  footer_links:
+    values:
+      - value:
+          _name: footer_link
+          text: Link
+          link: /
+        preview: "{{ value.text }}"

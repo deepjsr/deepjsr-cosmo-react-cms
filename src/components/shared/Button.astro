@@ -1,0 +1,22 @@
+---
+const { text = '', link = '#', variant, class: className = '' } = Astro.props;
+const variantName: keyof typeof variants = (variant as keyof typeof variants) || 'primary';
+
+const base =
+  'inline-flex items-center justify-center gap-2 rounded-[var(--theme-radius)] px-6 py-3 text-sm font-medium transition-opacity duration-200 hover:opacity-90';
+const variants = {
+  primary: 'bg-primary text-white',
+  secondary: 'border border-primary text-primary hover:bg-primary-soft',
+  accent: 'bg-accent text-white',
+  ghost: 'text-primary hover:bg-primary-soft',
+};
+const cls = `${base} ${variants[variantName] || variants.primary} ${className}`;
+---
+
+{
+  text && (
+    <a href={link} class={cls}>
+      <slot>{text}</slot>
+    </a>
+  )
+}

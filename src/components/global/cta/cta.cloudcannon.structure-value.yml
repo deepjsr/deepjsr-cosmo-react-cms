@@ -1,0 +1,32 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/cta
+  heading: "Ready to glow?"
+  subheading: Join thousands of happy customers.
+  primary_button:
+    text: Shop now
+    link: /shop
+  secondary_button:
+    text: Contact us
+    link: /contact
+  show_secondary_button: false
+  tone: primary
+_inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  primary_button:
+    type: object
+    nested: true
+  secondary_button:
+    type: object
+    nested: true
+  show_secondary_button:
+    type: switch
+  tone:
+    type: select
+    options:
+      values:
+        - primary
+        - accent

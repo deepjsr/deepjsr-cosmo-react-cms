@@ -1,0 +1,28 @@
+---
+import SectionWrapper from '../../shared/SectionWrapper.astro';
+
+const { heading = '', subheading = '', modules = [] } = Astro.props;
+---
+
+<SectionWrapper heading={heading} subheading={subheading}>
+  <div class="mx-auto max-w-3xl space-y-6">
+    {
+      modules.map((mod: any, i: number) => (
+        <div class="rounded-[var(--theme-radius)] border border-black/5 bg-surface p-6 shadow-sm">
+          <h3 class="text-xl font-semibold">
+            <span class="mr-2 text-primary">{String(i + 1).padStart(2, '0')}</span>
+            {mod.title}
+          </h3>
+          {mod.description && <p class="mt-2 text-muted">{mod.description}</p>}
+          {mod.lessons?.length > 0 && (
+            <ul class="mt-4 space-y-1 text-sm text-muted">
+              {mod.lessons.map((lesson: any) => (
+                <li>• {lesson}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</SectionWrapper>

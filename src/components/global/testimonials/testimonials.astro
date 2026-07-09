@@ -1,0 +1,24 @@
+---
+import SectionWrapper from '../../shared/SectionWrapper.astro';
+
+const { heading = '', subheading = '', testimonials = [] } = Astro.props;
+---
+
+<SectionWrapper heading={heading} subheading={subheading}>
+  <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+    {
+      testimonials.map((t: any) => (
+        <figure class="flex flex-col rounded-[var(--theme-radius)] border border-black/5 bg-surface p-6 shadow-sm">
+          {t.image && (
+            <img src={t.image} alt={t.image_alt || t.name || ''} class="mb-4 h-12 w-12 rounded-full object-cover" loading="lazy" />
+          )}
+          <blockquote class="flex-1 text-muted">“{t.quote}”</blockquote>
+          <figcaption class="mt-4">
+            <span class="font-semibold">{t.name}</span>
+            {t.role && <span class="block text-sm text-muted">{t.role}</span>}
+          </figcaption>
+        </figure>
+      ))
+    }
+  </div>
+</SectionWrapper>

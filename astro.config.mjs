@@ -3,9 +3,8 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 import editableRegions from '@cloudcannon/editable-regions/astro-integration';
 
-// https://astro.build
+// https://astro.build/config
 export default defineConfig({
-  site: 'https://lumiereskin.com',
   integrations: [react(), editableRegions()],
   vite: {
     plugins: [tailwindcss()],

@@ -1,0 +1,34 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/form
+  heading: Get in touch
+  subheading: We’d love to hear from you.
+  submit_label: Send message
+  fields:
+    -
+            label: Name
+            type: text
+            placeholder: Your name
+            required: true
+          -
+            label: Email
+            type: email
+            placeholder: "you@example.com"
+            required: true
+          -
+            label: Message
+            type: textarea
+            placeholder: "How can we help?"
+            required: true
+      _inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  submit_label:
+    type: text
+  fields:
+    type: array
+    element:
+      type: object
+      nested: true

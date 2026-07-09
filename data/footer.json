@@ -1,0 +1,35 @@
+{
+  "columns": [
+    {
+      "title": "Shop",
+      "links": [
+        { "text": "Serums", "link": "/shop" },
+        { "text": "Lip colour", "link": "/shop" },
+        { "text": "Moisturisers", "link": "/shop" },
+        { "text": "Mini sets", "link": "/shop" }
+      ]
+    },
+    {
+      "title": "Learn",
+      "links": [
+        { "text": "Ingredients", "link": "/ingredients" },
+        { "text": "Routines", "link": "/blog" },
+        { "text": "Skin quiz", "link": "/contact" },
+        { "text": "Stockists", "link": "/contact" }
+      ]
+    },
+    {
+      "title": "Company",
+      "links": [
+        { "text": "Our story", "link": "/about" },
+        { "text": "Sustainability", "link": "/about" },
+        { "text": "Contact", "link": "/contact" },
+        { "text": "FAQ", "link": "/contact" }
+      ]
+    }
+  ],
+  "newsletter_heading": "Join the glow list",
+  "newsletter_text": "Skincare tips, early access and 10% off your first order.",
+  "copyright": "© 2026 Lumière Skin. All rights reserved.",
+  "bottom_note": "Cruelty-free · Vegan · Made in France"
+}

@@ -1,0 +1,28 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/features-grid
+  heading: Why you’ll love it
+  subheading: Benefits at a glance.
+  features:
+    -
+            icon: ✿
+            title: Clean formula
+            text: Made without parabens or sulfates.
+          -
+            icon: ✿
+            title: Dermatologist tested
+            text: Safe for sensitive skin.
+          -
+            icon: ✿
+            title: Cruelty-free
+            text: Never tested on animals.
+      _inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  features:
+    type: array
+    element:
+      type: object
+      nested: true

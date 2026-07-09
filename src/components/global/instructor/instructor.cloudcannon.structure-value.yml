@@ -1,0 +1,17 @@
+preview: "{{ value.name }}"
+value:
+  _name: global/instructor
+  name: Your Instructor
+  role: Expert practitioner
+  bio: Years of hands-on experience.
+  image: /images/placeholders/team-01.jpg
+  image_alt: Instructor portrait
+_inputs:
+  name:
+    type: text
+  role:
+    type: text
+  bio:
+    type: textarea
+  image:
+    type: image

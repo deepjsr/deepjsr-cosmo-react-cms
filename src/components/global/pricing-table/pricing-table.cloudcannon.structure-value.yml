@@ -1,0 +1,41 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/pricing-table
+  heading: Plans for every routine
+  subheading: Choose what fits your skin.
+  tiers:
+    -
+            name: Essentials
+            price: $24
+            period: /mo
+            description: The daily basics.
+            features:
+              - Cleanser
+              - Moisturiser
+            highlight: false
+            button:
+              text: Choose
+              link: /shop
+          -
+            name: Glow
+            price: $48
+            period: /mo
+            description: Full routine.
+            features:
+              - Serum
+              - Moisturiser
+              - Mask
+            highlight: true
+            button:
+              text: Choose
+              link: /shop
+      _inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  tiers:
+    type: array
+    element:
+      type: object
+      nested: true

@@ -1,0 +1,10 @@
+---
+import SectionWrapper from '../../shared/SectionWrapper.astro';
+import Countdown from './Countdown.tsx';
+
+const { heading = '', subheading = '', target_date = '2026-12-31T10:00:00' } = Astro.props;
+---
+
+<SectionWrapper heading={heading} subheading={subheading}>
+  <Countdown target_date={target_date} client:load />
+</SectionWrapper>

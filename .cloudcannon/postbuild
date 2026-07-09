@@ -1,0 +1,15 @@
+#!/bin/bash
+set -e
+
+# CloudCannon post-build hook.
+# Runs after `npm run build` completes. Uncomment the Pagefind block to add
+# static search indexing for the blog once Pagefind is added as a dependency.
+
+echo "==> postbuild: build output is in ./dist"
+
+# if command -v npx >/dev/null 2>&1; then
+#   echo "==> postbuild: generating search index with Pagefind"
+#   npx pagefind --site dist || true
+# fi
+
+echo "==> postbuild: done"

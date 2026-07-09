@@ -1,0 +1,21 @@
+preview: "{{ value.heading }}"
+value:
+  _name: global/logo-cloud
+  heading: As featured in
+  subheading: "Press & stockists."
+  logos:
+    -
+            name: Vogue
+            image: ""
+            image_alt: Vogue
+            link: "#"
+      _inputs:
+  heading:
+    type: text
+  subheading:
+    type: textarea
+  logos:
+    type: array
+    element:
+      type: object
+      nested: true
