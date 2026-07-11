@@ -10,5 +10,5 @@ export default defineConfig({
     plugins: [tailwindcss()],
   },
   site: 'https://deepjsr.github.io',
-  base: '/deepjsr-cosmo-react-cms',
+  base: isGithub ? "/deepjsr-cosmo-react-cms" : "/",
 });
