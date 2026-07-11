@@ -1,6 +1,8 @@
 ---
-import nav from '../../../data/navigation.json';
+import navigation from '../../../data/navigation.json';
 import site from '../../../data/site.json';
+
+const nav = navigation.nav_items;
 
 const path = Astro.url.pathname;
 const base = import.meta.env.BASE_URL;
@@ -14,6 +16,7 @@ const withBase = (link: string) => {
 
 <header class="sticky top-0 z-50 border-b border-black/5 bg-background/80 backdrop-blur">
   <div class="container-page flex items-center justify-between py-4">
+
     <!-- Logo -->
     <a href={base} class="text-xl font-semibold tracking-tight">
       {site.site_title}
@@ -26,7 +29,9 @@ const withBase = (link: string) => {
           <a
             href={withBase(item.link)}
             class={`text-sm font-medium transition-colors hover:text-primary ${
-              path === withBase(item.link) ? 'text-primary' : 'text-ink'
+              path === withBase(item.link)
+                ? 'text-primary'
+                : 'text-ink'
             }`}
           >
             {item.text}
@@ -44,17 +49,21 @@ const withBase = (link: string) => {
     </a>
 
     <!-- Mobile Navigation -->
-    <details class="md:hidden">
+    <details class="relative md:hidden">
       <summary class="cursor-pointer list-none text-2xl leading-none">
         ☰
       </summary>
 
-      <nav class="absolute left-0 right-0 top-full flex flex-col gap-2 border-b border-black/5 bg-background p-4">
+      <nav class="absolute left-0 right-0 top-full flex flex-col gap-2 border-b border-black/5 bg-background p-4 shadow-lg">
         {
           nav.map((item) => (
             <a
               href={withBase(item.link)}
-              class="py-2 text-sm font-medium hover:text-primary"
+              class={`py-2 text-sm font-medium hover:text-primary ${
+                path === withBase(item.link)
+                  ? 'text-primary'
+                  : 'text-ink'
+              }`}
             >
               {item.text}
             </a>
@@ -69,5 +78,6 @@ const withBase = (link: string) => {
         </a>
       </nav>
     </details>
+
   </div>
 </header>

@@ -35,7 +35,10 @@
     "seo": {
       "type": "object",
       "properties": {
-        "page_description": {
+        "title": {
+          "type": "string"
+        },
+        "description": {
           "type": "string"
         },
         "canonical_url": {
@@ -46,14 +49,16 @@
         },
         "open_graph_type": {
           "default": "website",
-          "type": "string"
+          "type": "string",
+          "enum": [
+            "website",
+            "article",
+            "product"
+          ]
         },
         "no_index": {
           "default": false,
           "type": "boolean"
-        },
-        "title": {
-          "type": "string"
         }
       }
     },
