@@ -1,182 +1,196 @@
-# CloudCannon configuration for the Chaipress / Astro CMS template.
-# https://docs.cloudcannon.com/
-
-_paths:
-  static: /public
-  uploads: /public/images
-  data: /data
-
-# ----- Editor config -----
-_editables:
-  theme:
-    _source: data/theme.json
-
-# ----- Collections -----
 collections_config:
   pages:
     path: src/content/pages
-    include: "**/*.md"
-    schemas_path: .cloudcannon/schemas
-    add_options:
-      - label: "Standard Page"
-        schema: page
-      - label: "SaaS Landing"
-        schema: saas-landing
-      - label: "Course Sales"
-        schema: course-sales
-      - label: "Docs Homepage"
-        schema: docs-homepage
-      - label: "Webinar Registration"
-        schema: webinar-registration
-      - label: "About / Team"
-        schema: about-team
-      - label: "Pricing"
-        schema: pricing
+    icon: notes
+    disable_url: false
     _inputs:
       content_blocks:
         type: array
+        cascade: true
         element:
           type: structure
           groups: content_blocks
       seo:
         type: object
+        cascade: true
         nested: true
-
+      $.content_blocks[*]._name:
+        cascade: true
+    add_options:
+      - label: Standard Page
+        schema: page
+      - label: SaaS Landing
+        schema: saas-landing
+      - label: Course Sales
+        schema: course-sales
+      - label: Docs Homepage
+        schema: docs-homepage
+      - label: Webinar Registration
+        schema: webinar-registration
+      - label: About / Team
+        schema: about-team
+      - label: Pricing
+        schema: pricing
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
   posts:
     path: src/content/posts
-    include: "**/*.md"
-    schemas_path: .cloudcannon/schemas
-    add_options:
-      - label: "Blog Post"
-        schema: post
+    icon: notes
+    disable_url: false
     sort:
       by: date
       order: descending
     _inputs:
       tags:
         type: array
+        cascade: true
         element:
           type: select
-          options:
-            values:
-              - skincare
-              - makeup
-              - haircare
-              - ingredients
-              - routines
-              - news
+          options: {}
       draft:
         type: switch
+        cascade: true
       image:
         type: image
-
+        cascade: true
+    add_options:
+      - label: Blog Post
+        schema: post
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
   data:
     path: data
-    include: "*.json"
+    icon: notes
+    disable_url: false
     _inputs:
-      "*.json":
+      '*.json':
         type: object
+        cascade: true
         nested: true
-
+    disable_add: false
+    disable_add_folder: false
+    disable_file_actions: false
 collection_groups:
-  - label: "Pages"
+  - label: Pages
     collections:
       - pages
-  - label: "Blog"
+  - label: Blog
     collections:
       - posts
-  - label: "Site Settings"
+  - label: Site Settings
     collections:
       - data
-
-# ----- Global input types -----
 _inputs:
   text:
     type: text
+    cascade: true
   textarea:
     type: textarea
+    cascade: true
   image:
     type: image
+    cascade: true
   color:
     type: color
+    cascade: true
   switch:
     type: switch
+    cascade: true
   url:
     type: url
+    cascade: true
   select_font:
     type: select
     options:
+      allow_empty: true
       values:
-        - "Playfair Display"
-        - "Inter"
-        - "Lora"
-        - "Montserrat"
-        - "Cormorant Garamond"
-        - "Work Sans"
-        - "Poppins"
-        - "Georgia"
+        - Playfair Display
+        - Inter
+        - Lora
+        - Montserrat
+        - Cormorant Garamond
+        - Work Sans
+        - Poppins
+        - Georgia
+    cascade: true
   select_radius:
     type: select
     options:
+      allow_empty: true
       values:
-        - "0rem"
-        - "0.25rem"
-        - "0.5rem"
-        - "0.75rem"
-        - "1rem"
-        - "1.5rem"
-        - "2rem"
-        - "9999px"
+        - 0rem
+        - 0.25rem
+        - 0.5rem
+        - 0.75rem
+        - 1rem
+        - 1.5rem
+        - 2rem
+        - 9999px
+    cascade: true
   select_spacing:
     type: select
     options:
+      allow_empty: true
       values:
-        - "0.5rem"
-        - "1rem"
-        - "1.5rem"
-        - "2rem"
-        - "3rem"
-        - "4rem"
-
-# ----- Structures (auto-discovery of global components) -----
+        - 0.5rem
+        - 1rem
+        - 1.5rem
+        - 2rem
+        - 3rem
+        - 4rem
+    cascade: true
 _structures:
   content_blocks:
     values_from_glob: /src/components/**/*.cloudcannon.structure-value.yml
   social_links:
+    style: select
     values:
-      - value:
+      - preview: '{{ value.platform }}'
+        value:
           _name: social_link
           platform: Instagram
           url: https://instagram.com
-        preview: "{{ value.platform }}"
-      - value:
+      - preview: '{{ value.platform }}'
+        value:
           _name: social_link
           platform: TikTok
           url: https://tiktok.com
-        preview: "{{ value.platform }}"
-      - value:
+      - preview: '{{ value.platform }}'
+        value:
           _name: social_link
           platform: Pinterest
           url: https://pinterest.com
-        preview: "{{ value.platform }}"
   nav_items:
+    style: select
     values:
-      - value:
+      - preview: '{{ value.text }}'
+        value:
           _name: nav_item
           text: Home
           link: /
-        preview: "{{ value.text }}"
   footer_sections:
+    style: select
     values:
-      - value:
+      - preview: '{{ value.title }}'
+        value:
           _name: footer_section
           title: Shop
           links: []
-        preview: "{{ value.title }}"
   footer_links:
+    style: select
     values:
-      - value:
+      - preview: '{{ value.text }}'
+        value:
           _name: footer_link
           text: Link
           link: /
-        preview: "{{ value.text }}"
+_editables:
+  theme:
+    _source: data/theme.json
+timezone: Etc/UTC
+_paths:
+  static: /public
+  uploads: /public/images
+  data: /data
