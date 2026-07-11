@@ -1,8 +1,36 @@
-[
-  { "text": "Home", "link": "/" },
-  { "text": "Shop", "link": "/shop" },
-  { "text": "Ingredients", "link": "/ingredients" },
-  { "text": "Routines", "link": "/blog" },
-  { "text": "About", "link": "/about" },
-  { "text": "Contact", "link": "/contact" }
-]
+{
+  "logo": "/logo.svg",
+  "site_name": "Lumière Skin",
+
+  "nav_items": [
+    {
+      "text": "Home",
+      "link": "/"
+    },
+    {
+      "text": "Shop",
+      "link": "/shop"
+    },
+    {
+      "text": "Ingredients",
+      "link": "/ingredients"
+    },
+    {
+      "text": "Routines",
+      "link": "/blog"
+    },
+    {
+      "text": "About",
+      "link": "/about"
+    },
+    {
+      "text": "Contact",
+      "link": "/contact"
+    }
+  ],
+
+  "cta": {
+    "text": "Book a consult",
+    "link": "/contact"
+  }
+}

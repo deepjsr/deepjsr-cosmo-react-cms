@@ -1,7 +1,18 @@
 {
   "site_title": "Lumière Skin",
+  "tagline": "Science-backed skincare for radiant skin",
+
   "description": "Clean, conscious skincare and makeup crafted for radiant, healthy skin. Discover serums, lip colour and daily rituals made with proven ingredients.",
+
+  "logo": "/logo.svg",
   "favicon": "/favicon.svg",
+
+  "email": "hello@lumiereskin.com",
+  "phone": "+91 9876543210",
+  "address": "Kochi, Kerala, India",
+
+  "copyright": "© 2026 Lumière Skin. All rights reserved.",
+
   "twitter_site": "@lumiereskin",
   "default_og_image": "/images/og/default.jpg"
 }
