@@ -1,8 +1,9 @@
 // Component registry for CloudCannon's editable regions.
 //
-// The `EditableRegion` component from `@cloudcannon/editable-regions/astro`
-// uses this map to resolve a block's `_name` (e.g. "global/hero") to the
-// correct Astro component at edit time. The live site renders blocks through
+// Each block's `_name` (e.g. "global/hero") maps to its Astro component. This
+// map is consumed by `src/scripts/cc-register.ts`, which registers every entry
+// with `registerAstroComponent` so the Visual Editor can resolve and re-render
+// blocks client-side. The live site renders blocks through
 // `src/components/global/ContentBlocks.astro`, which uses the same mapping.
 
 import Hero from '../components/global/hero/hero.astro';

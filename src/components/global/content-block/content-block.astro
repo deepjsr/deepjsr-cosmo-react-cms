@@ -1,9 +1,8 @@
 ---
-// Generic editable region wrapper. Renders a heading and a block of HTML
-// content supplied by the editor (set:html keeps inline formatting safe).
+// Generic editable block. Renders a heading and a block of HTML content
+// supplied by the editor (set:html keeps inline formatting safe).
 const { heading = '', subheading = '', content = '' } = Astro.props;
 ---
-
 <section class="py-16 sm:py-24">
   <div class="container-page max-w-3xl">
     {heading && <h2 class="text-3xl font-semibold sm:text-4xl">{heading}</h2>}
@@ -12,3 +11,4 @@ const { heading = '', subheading = '', content = '' } = Astro.props;
     <slot />
   </div>
 </section>
+

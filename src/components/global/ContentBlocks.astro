@@ -54,6 +54,10 @@ const blocks = Astro.props.blocks ?? [];
 {
   blocks.map((block: any) => {
     const Comp = components[block._name as keyof typeof components];
-    return Comp ? <Comp {...block} /> : null;
+    return Comp ? (
+      <div data-editable="component" data-component={block._name}>
+        <Comp {...block} />
+      </div>
+    ) : null;
   })
 }
