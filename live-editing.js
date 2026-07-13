@@ -19,7 +19,10 @@ for (const [path, module] of Object.entries(componentModules)) {
     ? parts.slice(0, -1).join("/")
     : parts.slice(0, -1).concat(kebabFilename).join("/");
 
-  registerAstroComponent(registrationPath, module.default);
+  const component = module.default?.default ?? module.default;
+  if (component) {
+    registerAstroComponent(registrationPath, component);
+  }
 }
 
 export {};
