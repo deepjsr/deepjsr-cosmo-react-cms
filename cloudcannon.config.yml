@@ -3,6 +3,8 @@ collections_config:
     path: src/content/pages
     icon: notes
     disable_url: false
+    _enabled_editors:
+      - visual
     _inputs:
       content_blocks:
         type: array
@@ -41,6 +43,9 @@ collections_config:
     sort:
       by: date
       order: descending
+    _enabled_editors:
+      - content
+      - visual
     _inputs:
       tags:
         type: array
@@ -64,6 +69,8 @@ collections_config:
     path: data
     icon: notes
     disable_url: false
+    _enabled_editors:
+      - data
     _inputs:
       '*.json':
         type: object

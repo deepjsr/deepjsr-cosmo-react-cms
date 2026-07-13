@@ -36,6 +36,12 @@ const ogImage = image || site.default_og_image;
       noindex={noindex}
     />
     <ThemeInjector />
+    <script>
+      if (window.inEditorMode) {
+        import("../../live-editing.js");
+        import("../../editor-live-sync.js");
+      }
+    </script>
   </head>
   <body class="flex min-h-screen flex-col">
     <Navigation />
